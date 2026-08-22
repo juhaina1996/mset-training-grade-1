@@ -8,21 +8,22 @@ import { useProgress } from "@/context/ProgressProvider";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/subjects", label: "Subjects" },
+  { href: "/leaderboard", label: "Rank List" },
 ];
 
 export function Header() {
   const pathname = usePathname();
-  const { progress, isReady } = useProgress();
+  const { progress, isReady, activeProfile, logout } = useProgress();
 
   return (
     <header className="border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 text-lg font-extrabold text-indigo-700 dark:text-indigo-400">
           <span className="text-3xl">🎓</span>
           <span className="hidden sm:inline">{examConfig.shortName} Practice</span>
         </Link>
 
-        <nav className="flex items-center gap-2 sm:gap-4">
+        <nav className="flex flex-wrap items-center gap-2 sm:gap-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -40,6 +41,17 @@ export function Header() {
             <span className="flex min-h-[2.75rem] items-center gap-1 rounded-full bg-amber-100 px-4 py-2 text-base font-bold text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
               🔥 {progress.streak}
             </span>
+          )}
+          {activeProfile && (
+            <button
+              type="button"
+              onClick={logout}
+              title="Switch player"
+              className="flex min-h-[2.75rem] items-center gap-2 rounded-xl bg-slate-100 px-3 py-2 text-base font-semibold text-slate-700 transition active:bg-slate-200 dark:bg-slate-800 dark:text-slate-200"
+            >
+              <span className="text-2xl">{activeProfile.avatar}</span>
+              <span className="hidden sm:inline">{activeProfile.name}</span>
+            </button>
           )}
         </nav>
       </div>

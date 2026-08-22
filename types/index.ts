@@ -98,6 +98,13 @@ export type StudentProgress = {
   achievements: string[];
 };
 
+export type Profile = {
+  id: string;
+  name: string;
+  avatar: string;
+  createdAt: string;
+};
+
 export type DailyPlanSubjectSlot = {
   subjectId: string;
   questionCount: number;

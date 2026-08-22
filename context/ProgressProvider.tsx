@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import type { Difficulty, PracticeMode, QuestionAttempt, StudentProgress, TestSession } from "@/types";
+import type { Difficulty, PracticeMode, Profile, QuestionAttempt, StudentProgress, TestSession } from "@/types";
 import {
   completeTestSession,
   getEmptyProgress,
@@ -12,6 +12,13 @@ import {
   saveProgress,
   startTestSession,
 } from "@/lib/repositories/progressRepository";
+import {
+  createProfile as createProfileRepo,
+  deleteProfile as deleteProfileRepo,
+  getActiveProfileId,
+  getAllProfiles,
+  setActiveProfileId,
+} from "@/lib/repositories/profileRepository";
 import { getNewlyUnlockedAchievements } from "@/lib/achievementEngine";
 
 type NewAttemptInput = {
@@ -35,6 +42,12 @@ type NewSessionInput = {
 type ProgressContextValue = {
   progress: StudentProgress;
   isReady: boolean;
+  profiles: Profile[];
+  activeProfile: Profile | null;
+  createProfile: (name: string, avatar: string) => void;
+  switchProfile: (profileId: string) => void;
+  deleteProfile: (profileId: string) => void;
+  logout: () => void;
   recordAttempt: (input: NewAttemptInput, fallbackDifficulty?: Difficulty) => void;
   startSession: (input: NewSessionInput) => void;
   completeSession: (sessionId: string, correctAnswers: number) => void;
@@ -46,26 +59,72 @@ const ProgressContext = createContext<ProgressContextValue | undefined>(undefine
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState<StudentProgress>(getEmptyProgress());
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     // One-time hydration-safe read of the external localStorage store: the
-    // initial render must match the server (empty progress), so the real
-    // value can only be loaded after mount.
+    // initial render must match the server (no profiles loaded yet), so the
+    // real values can only be loaded after mount.
+    const loadedProfiles = getAllProfiles();
+    const activeId = getActiveProfileId();
+    const active = activeId ? loadedProfiles.find((p) => p.id === activeId) ?? null : null;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setProgress(loadProgress());
+    setProfiles(loadedProfiles);
+    setActiveProfile(active);
+    if (active) setProgress(loadProgress(active.id));
     setIsReady(true);
   }, []);
 
   useEffect(() => {
-    if (isReady) saveProgress(progress);
-  }, [progress, isReady]);
+    if (isReady && activeProfile) saveProgress(activeProfile.id, progress);
+  }, [progress, isReady, activeProfile]);
 
   const applyAchievementCheck = useCallback((next: StudentProgress): StudentProgress => {
     const newlyUnlocked = getNewlyUnlockedAchievements(next);
     return newlyUnlocked.length > 0
       ? { ...next, achievements: Array.from(new Set([...next.achievements, ...newlyUnlocked])) }
       : next;
+  }, []);
+
+  const createProfile = useCallback((name: string, avatar: string) => {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    const profile = createProfileRepo(trimmed, avatar);
+    setActiveProfileId(profile.id);
+    setProfiles((prev) => [...prev, profile]);
+    setActiveProfile(profile);
+    setProgress(getEmptyProgress());
+  }, []);
+
+  const switchProfile = useCallback(
+    (profileId: string) => {
+      const profile = profiles.find((p) => p.id === profileId);
+      if (!profile) return;
+      setActiveProfileId(profileId);
+      setActiveProfile(profile);
+      setProgress(loadProgress(profileId));
+    },
+    [profiles]
+  );
+
+  const deleteProfile = useCallback(
+    (profileId: string) => {
+      deleteProfileRepo(profileId);
+      setProfiles((prev) => prev.filter((p) => p.id !== profileId));
+      if (activeProfile?.id === profileId) {
+        setActiveProfile(null);
+        setProgress(getEmptyProgress());
+      }
+    },
+    [activeProfile]
+  );
+
+  const logout = useCallback(() => {
+    setActiveProfileId(null);
+    setActiveProfile(null);
+    setProgress(getEmptyProgress());
   }, []);
 
   const recordAttempt = useCallback(
@@ -119,12 +178,41 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   );
 
   const reset = useCallback(() => {
-    setProgress(resetProgressRepo());
-  }, []);
+    if (!activeProfile) return;
+    setProgress(resetProgressRepo(activeProfile.id));
+  }, [activeProfile]);
 
   const value = useMemo(
-    () => ({ progress, isReady, recordAttempt, startSession, completeSession, markDailyComplete, reset }),
-    [progress, isReady, recordAttempt, startSession, completeSession, markDailyComplete, reset]
+    () => ({
+      progress,
+      isReady,
+      profiles,
+      activeProfile,
+      createProfile,
+      switchProfile,
+      deleteProfile,
+      logout,
+      recordAttempt,
+      startSession,
+      completeSession,
+      markDailyComplete,
+      reset,
+    }),
+    [
+      progress,
+      isReady,
+      profiles,
+      activeProfile,
+      createProfile,
+      switchProfile,
+      deleteProfile,
+      logout,
+      recordAttempt,
+      startSession,
+      completeSession,
+      markDailyComplete,
+      reset,
+    ]
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

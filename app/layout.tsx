@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ProgressProvider } from "@/context/ProgressProvider";
-import { Header } from "@/components/Header";
+import { ProfileGate } from "@/components/ProfileGate";
 import { examConfig } from "@/config/exam";
 
 const geistSans = Geist({
@@ -28,8 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950">
         <ProgressProvider>
-          <Header />
-          <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">{children}</main>
+          <ProfileGate>{children}</ProfileGate>
         </ProgressProvider>
       </body>
     </html>

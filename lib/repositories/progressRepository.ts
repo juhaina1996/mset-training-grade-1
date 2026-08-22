@@ -5,11 +5,12 @@ import type {
   TestSession,
   TopicProgress,
 } from "@/types";
-import { readFromStorage, writeToStorage, clearStorage } from "@/lib/storage";
+import { readProgressFromStorage, writeProgressToStorage, clearProgressInStorage } from "@/lib/storage";
 
-// Local-storage-backed implementation. Swap the bodies of loadProgress/saveProgress
-// for Supabase/Firebase/database calls later without touching the UI, the question
-// selector, or the recommendation engine — they only depend on the StudentProgress shape.
+// Local-storage-backed implementation, scoped per student profile. Swap the
+// bodies of loadProgress/saveProgress for Supabase/Firebase/database calls
+// later without touching the UI, the question selector, or the
+// recommendation engine — they only depend on the StudentProgress shape.
 
 export function getEmptyProgress(): StudentProgress {
   return {
@@ -23,16 +24,16 @@ export function getEmptyProgress(): StudentProgress {
   };
 }
 
-export function loadProgress(): StudentProgress {
-  return readFromStorage<StudentProgress>() ?? getEmptyProgress();
+export function loadProgress(profileId: string): StudentProgress {
+  return readProgressFromStorage<StudentProgress>(profileId) ?? getEmptyProgress();
 }
 
-export function saveProgress(progress: StudentProgress): void {
-  writeToStorage(progress);
+export function saveProgress(profileId: string, progress: StudentProgress): void {
+  writeProgressToStorage(profileId, progress);
 }
 
-export function resetProgress(): StudentProgress {
-  clearStorage();
+export function resetProgress(profileId: string): StudentProgress {
+  clearProgressInStorage(profileId);
   return getEmptyProgress();
 }
 

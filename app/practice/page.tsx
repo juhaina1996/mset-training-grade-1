@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useProgress } from "@/context/ProgressProvider";
-import { getPracticeQuestions, getQuestionsForDailyPlan } from "@/lib/questionSelector";
+import { getMistakeQuestions, getPracticeQuestions, getQuestionsForDailyPlan } from "@/lib/questionSelector";
 import { getQuestionById } from "@/lib/repositories/questionRepository";
 import { generateDailyPracticePlan } from "@/lib/dailyPlanGenerator";
 import { QuestionCard } from "@/components/QuestionCard";
@@ -40,6 +40,8 @@ function PracticeContent() {
   const [showCongrats, setShowCongrats] = useState(false);
 
   const isDailyFullSession = mode === "daily" && day !== undefined;
+  const currentQuestion = questions[index];
+  const isLastQuestion = index === questions.length - 1;
 
   useEffect(() => {
     if (!isReady || sessionId) return;
@@ -91,6 +93,18 @@ function PracticeContent() {
           questionIds: selected.map((q) => q.id),
         });
       }
+    } else if (mode === "mistakes") {
+      // Review mode has no natural default size — show every outstanding
+      // mistake unless the caller explicitly capped it via ?count=.
+      const mistakes = getMistakeQuestions(progress);
+      selected = searchParams.get("count") ? mistakes.slice(0, count) : mistakes;
+      newSessionId = `session-mistakes-${Date.now()}`;
+
+      startSession({
+        id: newSessionId,
+        mode,
+        questionIds: selected.map((q) => q.id),
+      });
     } else {
       selected = getPracticeQuestions({
         mode,
@@ -124,16 +138,51 @@ function PracticeContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReady]);
 
+  useEffect(() => {
+    if (!revealed) return;
+
+    const timeout = window.setTimeout(() => {
+      if (!isLastQuestion) {
+        setIndex((i) => i + 1);
+        setSelectedOptionId(undefined);
+        setRevealed(false);
+        return;
+      }
+
+      completeSession(sessionId!, correctCount);
+
+      if (isDailyFullSession) {
+        markDailyComplete(day!);
+        setShowCongrats(true);
+        window.setTimeout(() => router.push("/"), 2500);
+        return;
+      }
+
+      router.push(`/results/${sessionId}`);
+    }, 1500);
+
+    return () => window.clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+
   if (!isReady || !sessionId) {
     return <p className="text-center text-slate-500">Loading your practice session…</p>;
   }
 
   if (questions.length === 0) {
+    const isMistakesMode = mode === "mistakes";
     return (
       <div className="rounded-2xl bg-white p-8 text-center shadow-sm dark:bg-slate-800">
-        <p className="font-semibold">No questions available for this selection yet.</p>
-        <Link href="/subjects" className="mt-3 inline-block text-indigo-600 hover:underline dark:text-indigo-400">
-          Back to subjects
+        <p className="font-semibold">
+          {isMistakesMode
+            ? "No mistakes to review right now — great job!"
+            : "No questions available for this selection yet."}
+        </p>
+        <Link
+          href={isMistakesMode ? "/" : "/subjects"}
+          className="mt-3 inline-block text-indigo-600 hover:underline dark:text-indigo-400"
+        >
+          {isMistakesMode ? "Back to home" : "Back to subjects"}
         </Link>
       </div>
     );
@@ -161,9 +210,6 @@ function PracticeContent() {
     );
   }
 
-  const currentQuestion = questions[index];
-  const isLastQuestion = index === questions.length - 1;
-
   function handleSelect(optionId: string) {
     if (revealed) return;
     const isCorrect = optionId === currentQuestion.correctOptionId;
@@ -184,26 +230,6 @@ function PracticeContent() {
     );
   }
 
-  function handleNext() {
-    if (!isLastQuestion) {
-      setIndex((i) => i + 1);
-      setSelectedOptionId(undefined);
-      setRevealed(false);
-      return;
-    }
-
-    completeSession(sessionId!, correctCount);
-
-    if (isDailyFullSession) {
-      markDailyComplete(day!);
-      setShowCongrats(true);
-      window.setTimeout(() => router.push("/"), 2500);
-      return;
-    }
-
-    router.push(`/results/${sessionId}`);
-  }
-
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
       <div className="flex items-center justify-between text-base font-semibold text-slate-500 dark:text-slate-400">
@@ -222,13 +248,9 @@ function PracticeContent() {
       />
 
       {revealed && (
-        <button
-          type="button"
-          onClick={handleNext}
-          className="min-h-[4rem] w-full rounded-2xl bg-indigo-600 px-6 py-4 text-xl font-bold text-white transition active:bg-indigo-800 sm:hover:bg-indigo-700"
-        >
-          {isLastQuestion ? "Finish" : "Next Question"}
-        </button>
+        <p className="text-center text-base font-semibold text-slate-500 dark:text-slate-400">
+          {isLastQuestion ? "Finishing up…" : "Next question…"}
+        </p>
       )}
     </div>
   );

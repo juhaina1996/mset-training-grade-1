@@ -1,6 +1,7 @@
 import type { DailyPlan, Difficulty, PracticeMode, Question, QuestionSelectionOptions, StudentProgress } from "@/types";
 import {
   getAllQuestions,
+  getQuestionById,
   getQuestionsBySubject,
   getQuestionsByTopic,
 } from "@/lib/repositories/questionRepository";
@@ -20,27 +21,23 @@ function dedupe(questions: Question[]): Question[] {
   });
 }
 
-function byDifficultyPreference(pool: Question[], preferred?: Difficulty): Question[] {
-  if (!preferred) return pool;
-  const fallbackOrder: Record<Difficulty, Difficulty[]> = {
-    easy: ["medium", "hard"],
-    medium: ["easy", "hard"],
-    hard: ["medium", "easy"],
-  };
-  const exact = pool.filter((q) => q.difficulty === preferred);
-  const rest = fallbackOrder[preferred].flatMap((d) => pool.filter((q) => q.difficulty === d));
-  return [...exact, ...rest];
-}
-
-function interleaveBySubject(pool: Question[]): Question[] {
-  const bySubject = new Map<string, Question[]>();
-  for (const q of pool) {
-    const list = bySubject.get(q.subjectId) ?? [];
-    list.push(q);
-    bySubject.set(q.subjectId, list);
+/**
+ * Round-robins a pool across groups keyed by `keyFn`, preserving each
+ * group's internal order. Used both to interleave subjects and to spread
+ * out same-template questions (e.g. ten near-identical "What is X + Y?"
+ * facts authored back-to-back) instead of exhausting one template before
+ * moving to the next.
+ */
+function interleaveBy<T>(pool: T[], keyFn: (item: T) => string): T[] {
+  const groups = new Map<string, T[]>();
+  for (const item of pool) {
+    const key = keyFn(item);
+    const list = groups.get(key) ?? [];
+    list.push(item);
+    groups.set(key, list);
   }
-  const lists = Array.from(bySubject.values());
-  const result: Question[] = [];
+  const lists = Array.from(groups.values());
+  const result: T[] = [];
   let index = 0;
   let remaining = pool.length;
   while (remaining > 0) {
@@ -53,6 +50,30 @@ function interleaveBySubject(pool: Question[]): Question[] {
     index++;
   }
   return result;
+}
+
+function templateSignature(question: Question): string {
+  return `${question.topicId}:${[...question.tags].sort().join(",")}`;
+}
+
+function diversifyByTemplate(pool: Question[]): Question[] {
+  return interleaveBy(pool, templateSignature);
+}
+
+function byDifficultyPreference(pool: Question[], preferred?: Difficulty): Question[] {
+  if (!preferred) return diversifyByTemplate(pool);
+  const fallbackOrder: Record<Difficulty, Difficulty[]> = {
+    easy: ["medium", "hard"],
+    medium: ["easy", "hard"],
+    hard: ["medium", "easy"],
+  };
+  const exact = diversifyByTemplate(pool.filter((q) => q.difficulty === preferred));
+  const rest = fallbackOrder[preferred].flatMap((d) => diversifyByTemplate(pool.filter((q) => q.difficulty === d)));
+  return [...exact, ...rest];
+}
+
+function interleaveBySubject(pool: Question[]): Question[] {
+  return interleaveBy(pool, (q) => q.subjectId);
 }
 
 function orderByPriority(
@@ -114,6 +135,19 @@ export function getPracticeQuestions(options: QuestionSelectionOptions): Questio
   const ordered = orderByPriority(candidatePool, mode, neverAttempted, previouslyIncorrect, notRecentlySeen);
 
   return ordered.slice(0, count);
+}
+
+/**
+ * Every question whose most recent attempt was wrong, grouped by subject so
+ * the review session isn't all one subject in a row. A question drops off
+ * this list on its own once it's answered correctly again.
+ */
+export function getMistakeQuestions(studentProgress: StudentProgress): Question[] {
+  const incorrectIds = getIncorrectQuestionIds(studentProgress);
+  const questions = Array.from(incorrectIds)
+    .map((id) => getQuestionById(id))
+    .filter((q): q is Question => Boolean(q));
+  return interleaveBySubject(questions);
 }
 
 /**

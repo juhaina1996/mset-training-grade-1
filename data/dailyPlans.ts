@@ -3,7 +3,7 @@ import { subjects } from "@/data/subjects";
 import { getTopicsBySubject } from "@/data/topics";
 import type { DailyPlan, DailyPlanType, Difficulty, Topic } from "@/types";
 
-const DAILY_TOTAL_QUESTIONS = 100;
+const DAILY_TOTAL_QUESTIONS = 50;
 const FOCUS_TOPICS_PER_SUBJECT = 2;
 
 function addDays(iso: string, days: number): string {

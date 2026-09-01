@@ -13,8 +13,12 @@ import {
 import { useProgress } from "@/context/ProgressProvider";
 import { generateDailyPracticePlan } from "@/lib/dailyPlanGenerator";
 import { getRecommendedTopics } from "@/lib/recommendations";
+import { getMissedDays } from "@/lib/missedDays";
+import { getIncorrectQuestionIds } from "@/lib/questionHistory";
 import { getAllAchievements } from "@/data/achievements";
 import { DailyPlanCard } from "@/components/DailyPlanCard";
+import { MissedDaysCard } from "@/components/MissedDaysCard";
+import { MistakesCard } from "@/components/MistakesCard";
 import { TopicCard } from "@/components/TopicCard";
 
 export default function Home() {
@@ -24,6 +28,8 @@ export default function Home() {
   const day = preparationDay(today);
   const plan = day >= 1 ? generateDailyPracticePlan(day, progress) : undefined;
   const recommendedTopics = isReady ? getRecommendedTopics(progress, 3) : [];
+  const missedDays = isReady && day >= 1 ? getMissedDays(progress, day) : [];
+  const mistakeCount = isReady ? getIncorrectQuestionIds(progress).size : 0;
   const achievements = getAllAchievements().filter((a) => progress.achievements.includes(a.id));
 
   if (!isPreparationStarted(today)) {
@@ -60,6 +66,10 @@ export default function Home() {
       ) : (
         <p>No plan found for today.</p>
       )}
+
+      <MissedDaysCard missedDays={missedDays} />
+
+      <MistakesCard mistakeCount={mistakeCount} />
 
       {recommendedTopics.length > 0 && (
         <section className="flex flex-col gap-3">

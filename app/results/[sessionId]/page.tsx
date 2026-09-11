@@ -4,6 +4,7 @@ import { use } from "react";
 import Link from "next/link";
 import { useProgress } from "@/context/ProgressProvider";
 import { ScoreSummary } from "@/components/ScoreSummary";
+import { MockExamBreakdown } from "@/components/MockExamBreakdown";
 import { getRecommendedRetests } from "@/lib/recommendations";
 import { getTopicById } from "@/data/topics";
 
@@ -30,14 +31,20 @@ export default function ResultsPage(props: PageProps<"/results/[sessionId]">) {
 
   const topic = session.topicId ? getTopicById(session.topicId) : undefined;
   const recommendedRetests = getRecommendedRetests(progress, 3);
+  const isMockExam = session.mode === "mock";
+  const sessionAttempts = isMockExam
+    ? progress.questionAttempts.filter((a) => a.sessionId === session.id)
+    : [];
 
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-50">
-        {topic ? `${topic.name} Results` : "Practice Results"}
+        {isMockExam ? "Mock Exam Results" : topic ? `${topic.name} Results` : "Practice Results"}
       </h1>
 
       <ScoreSummary session={session} />
+
+      {isMockExam && <MockExamBreakdown attempts={sessionAttempts} />}
 
       <div className="flex flex-wrap gap-3">
         <Link
@@ -52,6 +59,14 @@ export default function ResultsPage(props: PageProps<"/results/[sessionId]">) {
             className="flex min-h-[3.25rem] items-center rounded-xl border-2 border-indigo-200 px-6 py-3 text-lg font-bold text-indigo-700 transition active:bg-indigo-100 sm:hover:bg-indigo-50 dark:border-indigo-800 dark:text-indigo-300 dark:sm:hover:bg-indigo-900/30"
           >
             Retest This Topic
+          </Link>
+        )}
+        {isMockExam && (
+          <Link
+            href="/practice?mode=mock"
+            className="flex min-h-[3.25rem] items-center rounded-xl border-2 border-indigo-200 px-6 py-3 text-lg font-bold text-indigo-700 transition active:bg-indigo-100 sm:hover:bg-indigo-50 dark:border-indigo-800 dark:text-indigo-300 dark:sm:hover:bg-indigo-900/30"
+          >
+            Take Another Mock Exam
           </Link>
         )}
       </div>

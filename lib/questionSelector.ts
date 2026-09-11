@@ -151,6 +151,31 @@ export function getMistakeQuestions(studentProgress: StudentProgress): Question[
 }
 
 /**
+ * A fixed-length exam pulled evenly from the given subjects, then
+ * interleaved so subjects are mixed throughout rather than in blocks —
+ * closer to how a real mixed-subject exam paper feels.
+ */
+export function getMockExamQuestions(
+  studentProgress: StudentProgress,
+  subjectIds: readonly string[],
+  totalCount: number
+): Question[] {
+  const base = Math.floor(totalCount / subjectIds.length);
+  const remainder = totalCount - base * subjectIds.length;
+
+  const bySubject = subjectIds.flatMap((subjectId, i) =>
+    getPracticeQuestions({
+      mode: "mock",
+      subjectId,
+      count: base + (i < remainder ? 1 : 0),
+      studentProgress,
+    })
+  );
+
+  return interleaveBySubject(bySubject);
+}
+
+/**
  * Expands a DailyPlan into the actual list of questions to serve, splitting
  * each subject slot's questionCount evenly across its focus topics (or the
  * whole subject's bank when no focus topics are set).

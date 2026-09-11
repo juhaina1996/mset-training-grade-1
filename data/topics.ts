@@ -1,7 +1,8 @@
 import type { Topic } from "@/types";
 
 // Topic list mirrors the official MSAT (Malappuram Sahodaya Aptitude Test)
-// Grade 1 syllabus (2025-26): Maths, English, EVS, GK and Aptitude.
+// Grade 1 & 2 syllabus: Mathematics, General Knowledge and Mental Ability.
+// English and EVS are kept as extra bonus subjects outside the official syllabus.
 export const topics: Topic[] = [
   // Maths
   {
@@ -245,10 +246,10 @@ export const topics: Topic[] = [
 
   // GK
   {
-    id: "my-surroundings",
+    id: "around-you",
     subjectId: "gk",
-    name: "Me & My Surroundings",
-    description: "Family, friends and things around me.",
+    name: "Around You",
+    description: "Family, friends, school and things around me.",
     order: 1,
     difficultyRange: ["easy", "medium", "hard"],
     questionTarget: 20,
@@ -263,22 +264,58 @@ export const topics: Topic[] = [
     questionTarget: 20,
   },
   {
-    id: "india-and-world",
+    id: "my-country",
     subjectId: "gk",
-    name: "India & The World",
-    description: "National symbols, festivals and basic world facts.",
+    name: "My Country",
+    description: "India's flag, symbols, festivals and important places.",
     order: 3,
     difficultyRange: ["easy", "medium", "hard"],
     questionTarget: 20,
   },
   {
-    id: "entertainment-and-sports",
+    id: "the-world",
     subjectId: "gk",
-    name: "Entertainment and Sports",
-    description: "Games, sports and popular entertainment for kids.",
+    name: "The World",
+    description: "Continents, oceans, countries and basic world facts.",
     order: 4,
     difficultyRange: ["easy", "medium", "hard"],
-    questionTarget: 20,
+    questionTarget: 15,
+  },
+  {
+    id: "science-and-technology",
+    subjectId: "gk",
+    name: "Science & Technology",
+    description: "Everyday science, inventions and simple technology.",
+    order: 5,
+    difficultyRange: ["easy", "medium", "hard"],
+    questionTarget: 15,
+  },
+  {
+    id: "entertainment",
+    subjectId: "gk",
+    name: "Entertainment",
+    description: "Movies, cartoons, music and fun places to visit.",
+    order: 6,
+    difficultyRange: ["easy", "medium", "hard"],
+    questionTarget: 12,
+  },
+  {
+    id: "sports",
+    subjectId: "gk",
+    name: "Sports",
+    description: "Games, sports equipment and how they're played.",
+    order: 7,
+    difficultyRange: ["easy", "medium", "hard"],
+    questionTarget: 15,
+  },
+  {
+    id: "current-affairs",
+    subjectId: "gk",
+    name: "Current Affairs",
+    description: "Notable recent events, days and awareness for kids.",
+    order: 8,
+    difficultyRange: ["easy", "medium", "hard"],
+    questionTarget: 15,
   },
 
   // Aptitude

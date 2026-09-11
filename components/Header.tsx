@@ -8,6 +8,7 @@ import { useProgress } from "@/context/ProgressProvider";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/subjects", label: "Subjects" },
+  { href: "/mock-exam", label: "Mock Exam" },
   { href: "/leaderboard", label: "Rank List" },
 ];
 

@@ -4,12 +4,24 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useProgress } from "@/context/ProgressProvider";
-import { getMistakeQuestions, getPracticeQuestions, getQuestionsForDailyPlan } from "@/lib/questionSelector";
+import {
+  getMistakeQuestions,
+  getMockExamQuestions,
+  getPracticeQuestions,
+  getQuestionsForDailyPlan,
+} from "@/lib/questionSelector";
 import { getQuestionById } from "@/lib/repositories/questionRepository";
 import { generateDailyPracticePlan } from "@/lib/dailyPlanGenerator";
+import { mockExamConfig } from "@/config/exam";
 import { QuestionCard } from "@/components/QuestionCard";
 import { ProgressBar } from "@/components/ProgressBar";
 import type { PracticeMode, Question } from "@/types";
+
+function formatTime(totalSeconds: number): string {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
 
 export default function PracticePage() {
   return (
@@ -38,8 +50,10 @@ function PracticeContent() {
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [remainingSeconds, setRemainingSeconds] = useState<number | null>(null);
 
   const isDailyFullSession = mode === "daily" && day !== undefined;
+  const isMockExam = mode === "mock";
   const currentQuestion = questions[index];
   const isLastQuestion = index === questions.length - 1;
 
@@ -105,6 +119,15 @@ function PracticeContent() {
         mode,
         questionIds: selected.map((q) => q.id),
       });
+    } else if (mode === "mock") {
+      selected = getMockExamQuestions(progress, mockExamConfig.subjectIds, mockExamConfig.totalQuestions);
+      newSessionId = `session-mock-${Date.now()}`;
+
+      startSession({
+        id: newSessionId,
+        mode,
+        questionIds: selected.map((q) => q.id),
+      });
     } else {
       selected = getPracticeQuestions({
         mode,
@@ -114,7 +137,7 @@ function PracticeContent() {
         studentProgress: progress,
       });
 
-      const isSingleTopic = mode !== "daily" && mode !== "mock";
+      const isSingleTopic = mode !== "daily";
       newSessionId = `session-${mode}-${topicIdParam ?? subjectIdParam ?? "mixed"}-${Date.now()}`;
 
       startSession({
@@ -135,8 +158,27 @@ function PracticeContent() {
     setCorrectCount(resumedCorrect);
     setSelectedOptionId(resumedSelectedOptionId);
     setRevealed(resumedRevealed);
+    if (mode === "mock") setRemainingSeconds(mockExamConfig.timeLimitMinutes * 60);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReady]);
+
+  useEffect(() => {
+    if (!isMockExam || remainingSeconds === null) return;
+
+    const interval = window.setInterval(() => {
+      setRemainingSeconds((s) => (s !== null && s > 0 ? s - 1 : s));
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMockExam, remainingSeconds !== null]);
+
+  useEffect(() => {
+    if (!isMockExam || remainingSeconds !== 0 || !sessionId) return;
+    completeSession(sessionId, correctCount);
+    router.push(`/results/${sessionId}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [remainingSeconds]);
 
   useEffect(() => {
     if (!revealed) return;
@@ -236,7 +278,19 @@ function PracticeContent() {
         <span>
           Question {index + 1} of {questions.length}
         </span>
-        <span className="capitalize">{mode} practice</span>
+        {isMockExam && remainingSeconds !== null ? (
+          <span
+            className={`rounded-full px-3 py-1 font-bold ${
+              remainingSeconds <= 60
+                ? "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300"
+                : "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300"
+            }`}
+          >
+            ⏱ {formatTime(remainingSeconds)}
+          </span>
+        ) : (
+          <span className="capitalize">{mode} practice</span>
+        )}
       </div>
       <ProgressBar percentage={((index + (revealed ? 1 : 0)) / questions.length) * 100} />
 

@@ -4,7 +4,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-001",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "Who are the people who take care of you at home?",
     "options": [
       {
@@ -29,7 +29,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -38,7 +38,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-002",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What do we call people who live near our house?",
     "options": [
       {
@@ -63,7 +63,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -72,7 +72,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-003",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What should you do when you meet elders?",
     "options": [
       {
@@ -97,7 +97,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -106,7 +106,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-004",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is the name of the place where you learn every day?",
     "options": [
       {
@@ -131,7 +131,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -140,7 +140,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-005",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "Who are the people you play and study with at school?",
     "options": [
       {
@@ -165,7 +165,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -174,7 +174,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-006",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What should you say when you meet someone in the morning?",
     "options": [
       {
@@ -199,7 +199,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -208,7 +208,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-007",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is the name of the country you live in called?",
     "options": [
       {
@@ -233,7 +233,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "easy",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -242,7 +242,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-008",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "Who is the head of your family who takes care of everyone?",
     "options": [
       {
@@ -267,7 +267,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -276,7 +276,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-009",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What should you do if you get lost in a crowd?",
     "options": [
       {
@@ -301,7 +301,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -310,7 +310,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-010",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What do we call the place where we live, eat and sleep?",
     "options": [
       {
@@ -335,7 +335,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -344,7 +344,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-011",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is your mother's mother called?",
     "options": [
       {
@@ -369,7 +369,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -378,7 +378,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-012",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is your father's father called?",
     "options": [
       {
@@ -403,7 +403,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -412,7 +412,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-013",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is your father's brother called?",
     "options": [
       {
@@ -437,7 +437,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -446,7 +446,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-014",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is your parent's daughter, other than you, called?",
     "options": [
       {
@@ -471,7 +471,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -480,7 +480,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-015",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What should you always remember and tell someone if needed?",
     "options": [
       {
@@ -505,7 +505,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -514,7 +514,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-016",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "Who keeps our home clean and takes care of us daily?",
     "options": [
       {
@@ -539,7 +539,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -548,7 +548,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-017",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is a group of people related to each other called?",
     "options": [
       {
@@ -573,7 +573,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -582,7 +582,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-018",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "Which number should you remember to call in an emergency?",
     "options": [
       {
@@ -607,7 +607,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -616,7 +616,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-019",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What should you do when your friend is sad?",
     "options": [
       {
@@ -641,7 +641,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -650,7 +650,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-surround-020",
     "subjectId": "gk",
-    "topicId": "my-surroundings",
+    "topicId": "around-you",
     "question": "What is the name for the place of worship in your area?",
     "options": [
       {
@@ -675,7 +675,7 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "my-surroundings",
+      "around-you",
       "family"
     ],
     "learningObjective": "Understand family, friends and surroundings",
@@ -1364,7 +1364,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-001",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What is the name of our country?",
     "options": [
       {
@@ -1398,7 +1398,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-002",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What are the colours of the Indian flag?",
     "options": [
       {
@@ -1432,7 +1432,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-003",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What is at the centre of the Indian flag?",
     "options": [
       {
@@ -1466,7 +1466,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-004",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What is the capital city of India?",
     "options": [
       {
@@ -1500,7 +1500,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-005",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which animal is the national animal of India?",
     "options": [
       {
@@ -1534,7 +1534,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-006",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which flower is the national flower of India?",
     "options": [
       {
@@ -1568,7 +1568,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-007",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which fruit is called the national fruit of India?",
     "options": [
       {
@@ -1602,7 +1602,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-008",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which festival is known as the festival of lights?",
     "options": [
       {
@@ -1636,7 +1636,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-009",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which festival is known as the festival of colours?",
     "options": [
       {
@@ -1670,7 +1670,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-010",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "On which day do we celebrate India's Independence Day?",
     "options": [
       {
@@ -1704,7 +1704,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-011",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "On which day do we celebrate Republic Day?",
     "options": [
       {
@@ -1738,7 +1738,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-012",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Who is known as the Father of the Nation in India?",
     "options": [
       {
@@ -1770,43 +1770,9 @@ export const gkQuestions: Question[] = [
     "estimatedTimeSeconds": 30
   },
   {
-    "id": "gk-india-013",
-    "subjectId": "gk",
-    "topicId": "india-and-world",
-    "question": "What is the name of our planet?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Earth"
-      },
-      {
-        "id": "b",
-        "text": "Sun"
-      },
-      {
-        "id": "c",
-        "text": "Mars"
-      },
-      {
-        "id": "d",
-        "text": "Moon"
-      }
-    ],
-    "correctOptionId": "a",
-    "explanation": "Earth is correct.",
-    "difficulty": "hard",
-    "questionType": "mcq",
-    "tags": [
-      "india",
-      "national-symbols"
-    ],
-    "learningObjective": "Learn national symbols and basic facts about India",
-    "estimatedTimeSeconds": 30
-  },
-  {
     "id": "gk-india-014",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What language is widely spoken across India?",
     "options": [
       {
@@ -1840,7 +1806,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-015",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "Which of these is a large city in India?",
     "options": [
       {
@@ -1874,7 +1840,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-016",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What do we call a country's song of pride, sung on special days?",
     "options": [
       {
@@ -1908,7 +1874,7 @@ export const gkQuestions: Question[] = [
   {
     "id": "gk-india-017",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "my-country",
     "question": "What shape is the Indian flag?",
     "options": [
       {
@@ -1940,9 +1906,43 @@ export const gkQuestions: Question[] = [
     "estimatedTimeSeconds": 30
   },
   {
+    "id": "gk-india-013",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "What is the name of our planet?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Earth"
+      },
+      {
+        "id": "b",
+        "text": "Sun"
+      },
+      {
+        "id": "c",
+        "text": "Mars"
+      },
+      {
+        "id": "d",
+        "text": "Moon"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Earth is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
     "id": "gk-india-018",
     "subjectId": "gk",
-    "topicId": "india-and-world",
+    "topicId": "the-world",
     "question": "Which continent is India part of?",
     "options": [
       {
@@ -1967,322 +1967,968 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "india",
-      "national-symbols"
+      "world",
+      "geography"
     ],
-    "learningObjective": "Learn national symbols and basic facts about India",
+    "learningObjective": "Learn about continents, oceans and basic world facts",
     "estimatedTimeSeconds": 30
   },
   {
-    "id": "gk-entertainment-001",
+    "id": "gk-world-003",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which equipment do you use to play cricket?",
+    "topicId": "the-world",
+    "question": "How many continents are there in the world?",
     "options": [
       {
         "id": "a",
-        "text": "Net only"
-      },
-      {
-        "id": "b",
-        "text": "Bat and ball"
-      },
-      {
-        "id": "c",
-        "text": "Goal post"
-      },
-      {
-        "id": "d",
-        "text": "Racket"
-      }
-    ],
-    "correctOptionId": "b",
-    "explanation": "Bat and ball is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-002",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which equipment do you use to play football?",
-    "options": [
-      {
-        "id": "a",
-        "text": "A racket"
-      },
-      {
-        "id": "b",
-        "text": "A football"
-      },
-      {
-        "id": "c",
-        "text": "A net only"
-      },
-      {
-        "id": "d",
-        "text": "A bat"
-      }
-    ],
-    "correctOptionId": "b",
-    "explanation": "A football is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-003",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which sport uses a racket and a shuttlecock?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Football"
-      },
-      {
-        "id": "b",
-        "text": "Swimming"
-      },
-      {
-        "id": "c",
-        "text": "Badminton"
-      },
-      {
-        "id": "d",
-        "text": "Cricket"
-      }
-    ],
-    "correctOptionId": "c",
-    "explanation": "Badminton is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-004",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which sport do you play in a swimming pool?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Badminton"
-      },
-      {
-        "id": "b",
-        "text": "Football"
-      },
-      {
-        "id": "c",
-        "text": "Swimming"
-      },
-      {
-        "id": "d",
-        "text": "Cricket"
-      }
-    ],
-    "correctOptionId": "c",
-    "explanation": "Swimming is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-005",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "How many players are usually on a football team on the field?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Eleven"
-      },
-      {
-        "id": "b",
-        "text": "Fifteen"
-      },
-      {
-        "id": "c",
-        "text": "Nine"
-      },
-      {
-        "id": "d",
         "text": "Five"
-      }
-    ],
-    "correctOptionId": "a",
-    "explanation": "Eleven is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-006",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which game do you play by rolling a ball to knock down pins?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Badminton"
       },
       {
         "id": "b",
-        "text": "Bowling"
+        "text": "Seven"
       },
       {
         "id": "c",
-        "text": "Cricket"
+        "text": "Ten"
       },
       {
         "id": "d",
-        "text": "Chess"
+        "text": "Three"
       }
     ],
     "correctOptionId": "b",
-    "explanation": "Bowling is correct.",
-    "difficulty": "easy",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-007",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which board game is played with black and white pieces and a king?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Football"
-      },
-      {
-        "id": "b",
-        "text": "Chess"
-      },
-      {
-        "id": "c",
-        "text": "Bowling"
-      },
-      {
-        "id": "d",
-        "text": "Cricket"
-      }
-    ],
-    "correctOptionId": "b",
-    "explanation": "Chess is correct.",
+    "explanation": "Seven is correct.",
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "entertainment",
-      "sports"
+      "world",
+      "geography"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "Learn about continents, oceans and basic world facts",
     "estimatedTimeSeconds": 30
   },
   {
-    "id": "gk-entertainment-008",
+    "id": "gk-world-004",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which of these is an indoor game?",
+    "topicId": "the-world",
+    "question": "Which is the largest continent in the world?",
     "options": [
       {
         "id": "a",
-        "text": "Carrom"
+        "text": "Africa"
       },
       {
         "id": "b",
-        "text": "Swimming"
+        "text": "Europe"
       },
       {
         "id": "c",
-        "text": "Football"
+        "text": "Asia"
       },
       {
         "id": "d",
-        "text": "Cricket"
-      }
-    ],
-    "correctOptionId": "a",
-    "explanation": "Carrom is correct.",
-    "difficulty": "medium",
-    "questionType": "mcq",
-    "tags": [
-      "entertainment",
-      "sports"
-    ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
-    "estimatedTimeSeconds": 30
-  },
-  {
-    "id": "gk-entertainment-009",
-    "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
-    "question": "Which of these is an outdoor game?",
-    "options": [
-      {
-        "id": "a",
-        "text": "Video games"
-      },
-      {
-        "id": "b",
-        "text": "Carrom"
-      },
-      {
-        "id": "c",
-        "text": "Cricket"
-      },
-      {
-        "id": "d",
-        "text": "Chess"
+        "text": "Australia"
       }
     ],
     "correctOptionId": "c",
-    "explanation": "Cricket is correct.",
+    "explanation": "Asia is correct.",
     "difficulty": "medium",
     "questionType": "mcq",
     "tags": [
-      "entertainment",
-      "sports"
+      "world",
+      "geography"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-005",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "Which is the smallest continent in the world?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asia"
+      },
+      {
+        "id": "b",
+        "text": "Australia"
+      },
+      {
+        "id": "c",
+        "text": "Africa"
+      },
+      {
+        "id": "d",
+        "text": "North America"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Australia is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-006",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "How many oceans are there in the world?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Three"
+      },
+      {
+        "id": "b",
+        "text": "Four"
+      },
+      {
+        "id": "c",
+        "text": "Five"
+      },
+      {
+        "id": "d",
+        "text": "Six"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Five is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-007",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "Which is the largest ocean in the world?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Atlantic Ocean"
+      },
+      {
+        "id": "b",
+        "text": "Indian Ocean"
+      },
+      {
+        "id": "c",
+        "text": "Arctic Ocean"
+      },
+      {
+        "id": "d",
+        "text": "Pacific Ocean"
+      }
+    ],
+    "correctOptionId": "d",
+    "explanation": "Pacific Ocean is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-008",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "Which is the largest country in the world by area?",
+    "options": [
+      {
+        "id": "a",
+        "text": "India"
+      },
+      {
+        "id": "b",
+        "text": "Russia"
+      },
+      {
+        "id": "c",
+        "text": "China"
+      },
+      {
+        "id": "d",
+        "text": "USA"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Russia is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-009",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "Which famous tower is found in Paris, France?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Big Ben"
+      },
+      {
+        "id": "b",
+        "text": "Eiffel Tower"
+      },
+      {
+        "id": "c",
+        "text": "Leaning Tower of Pisa"
+      },
+      {
+        "id": "d",
+        "text": "Statue of Liberty"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Eiffel Tower is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-010",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "The Great Wall is a famous landmark of which country?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Japan"
+      },
+      {
+        "id": "b",
+        "text": "China"
+      },
+      {
+        "id": "c",
+        "text": "India"
+      },
+      {
+        "id": "d",
+        "text": "Egypt"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "China is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-011",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "The Pyramids are a famous landmark of which country?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Egypt"
+      },
+      {
+        "id": "b",
+        "text": "Italy"
+      },
+      {
+        "id": "c",
+        "text": "France"
+      },
+      {
+        "id": "d",
+        "text": "Japan"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Egypt is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-012",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "What do we call the very cold area at the very top of the Earth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Desert"
+      },
+      {
+        "id": "b",
+        "text": "North Pole"
+      },
+      {
+        "id": "c",
+        "text": "Rainforest"
+      },
+      {
+        "id": "d",
+        "text": "Valley"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "North Pole is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-013",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "What do we call the very cold area at the very bottom of the Earth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "South Pole"
+      },
+      {
+        "id": "b",
+        "text": "Desert"
+      },
+      {
+        "id": "c",
+        "text": "Rainforest"
+      },
+      {
+        "id": "d",
+        "text": "Island"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "South Pole is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-014",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "Which shape is the Earth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Flat like a plate"
+      },
+      {
+        "id": "b",
+        "text": "A cube"
+      },
+      {
+        "id": "c",
+        "text": "Round like a sphere"
+      },
+      {
+        "id": "d",
+        "text": "A triangle"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Round like a sphere is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-world-015",
+    "subjectId": "gk",
+    "topicId": "the-world",
+    "question": "What do we call a large area of land surrounded completely by water?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mountain"
+      },
+      {
+        "id": "b",
+        "text": "Island"
+      },
+      {
+        "id": "c",
+        "text": "Valley"
+      },
+      {
+        "id": "d",
+        "text": "Desert"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Island is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "world",
+      "geography"
+    ],
+    "learningObjective": "Learn about continents, oceans and basic world facts",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-001",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which device do we use to see things that are very far away?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Telescope"
+      },
+      {
+        "id": "b",
+        "text": "Umbrella"
+      },
+      {
+        "id": "c",
+        "text": "Spoon"
+      },
+      {
+        "id": "d",
+        "text": "Blanket"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Telescope is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-002",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which device do we use to talk to someone who is far away?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Telephone"
+      },
+      {
+        "id": "b",
+        "text": "Umbrella"
+      },
+      {
+        "id": "c",
+        "text": "Fan"
+      },
+      {
+        "id": "d",
+        "text": "Broom"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Telephone is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-003",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which device do we use to take pictures?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Camera"
+      },
+      {
+        "id": "b",
+        "text": "Kettle"
+      },
+      {
+        "id": "c",
+        "text": "Blanket"
+      },
+      {
+        "id": "d",
+        "text": "Broom"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Camera is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-004",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "What do we call a machine built to look and act a little like a human?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Robot"
+      },
+      {
+        "id": "b",
+        "text": "Bicycle"
+      },
+      {
+        "id": "c",
+        "text": "Umbrella"
+      },
+      {
+        "id": "d",
+        "text": "Ladder"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Robot is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-005",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which invention allows people to fly through the sky?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Airplane"
+      },
+      {
+        "id": "b",
+        "text": "Bicycle"
+      },
+      {
+        "id": "c",
+        "text": "Boat"
+      },
+      {
+        "id": "d",
+        "text": "Umbrella"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Airplane is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-006",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which part of a computer do we use to type letters and numbers?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keyboard"
+      },
+      {
+        "id": "b",
+        "text": "Speaker"
+      },
+      {
+        "id": "c",
+        "text": "Fan"
+      },
+      {
+        "id": "d",
+        "text": "Wheel"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Keyboard is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-007",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "What do we call the machine that keeps our food cold and fresh?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Refrigerator"
+      },
+      {
+        "id": "b",
+        "text": "Oven"
+      },
+      {
+        "id": "c",
+        "text": "Fan"
+      },
+      {
+        "id": "d",
+        "text": "Iron"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Refrigerator is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-008",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "What flows through wires to make bulbs and machines work?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Water"
+      },
+      {
+        "id": "b",
+        "text": "Electricity"
+      },
+      {
+        "id": "c",
+        "text": "Air"
+      },
+      {
+        "id": "d",
+        "text": "Sand"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Electricity is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-009",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which of these is a source of light that does not need electricity?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Sun"
+      },
+      {
+        "id": "b",
+        "text": "A television"
+      },
+      {
+        "id": "c",
+        "text": "A refrigerator"
+      },
+      {
+        "id": "d",
+        "text": "A computer"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "The Sun is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-010",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which simple tool helps us cut paper easily?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Scissors"
+      },
+      {
+        "id": "b",
+        "text": "Spoon"
+      },
+      {
+        "id": "c",
+        "text": "Blanket"
+      },
+      {
+        "id": "d",
+        "text": "Umbrella"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Scissors is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-011",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which of these can we use to know the time?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A clock"
+      },
+      {
+        "id": "b",
+        "text": "A spoon"
+      },
+      {
+        "id": "c",
+        "text": "A blanket"
+      },
+      {
+        "id": "d",
+        "text": "A broom"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "A clock is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-012",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "What do plants use sunlight, water and air to make?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Their own food"
+      },
+      {
+        "id": "b",
+        "text": "Plastic"
+      },
+      {
+        "id": "c",
+        "text": "Electricity"
+      },
+      {
+        "id": "d",
+        "text": "Metal"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Their own food is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-013",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which material is a magnet able to pull towards itself?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Iron objects"
+      },
+      {
+        "id": "b",
+        "text": "Wooden objects"
+      },
+      {
+        "id": "c",
+        "text": "Paper"
+      },
+      {
+        "id": "d",
+        "text": "Cloth"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Iron objects is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-014",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "Which machine do we use to wash our clothes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Washing machine"
+      },
+      {
+        "id": "b",
+        "text": "Refrigerator"
+      },
+      {
+        "id": "c",
+        "text": "Camera"
+      },
+      {
+        "id": "d",
+        "text": "Telescope"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Washing machine is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sci-015",
+    "subjectId": "gk",
+    "topicId": "science-and-technology",
+    "question": "What do we call water that has turned hard because it is very cold?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ice"
+      },
+      {
+        "id": "b",
+        "text": "Steam"
+      },
+      {
+        "id": "c",
+        "text": "Sand"
+      },
+      {
+        "id": "d",
+        "text": "Oil"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Ice is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "science",
+      "technology"
+    ],
+    "learningObjective": "Everyday science, simple inventions and technology",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-010",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "entertainment",
     "question": "What do we call a place where movies are shown?",
     "options": [
       {
@@ -2308,15 +2954,15 @@ export const gkQuestions: Question[] = [
     "questionType": "mcq",
     "tags": [
       "entertainment",
-      "sports"
+      "media"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about entertainment and fun places",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-011",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "entertainment",
     "question": "What do we call colourful drawings that move and tell a story?",
     "options": [
       {
@@ -2342,15 +2988,15 @@ export const gkQuestions: Question[] = [
     "questionType": "mcq",
     "tags": [
       "entertainment",
-      "sports"
+      "media"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about entertainment and fun places",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-012",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "entertainment",
     "question": "Which of these is a musical instrument?",
     "options": [
       {
@@ -2376,15 +3022,15 @@ export const gkQuestions: Question[] = [
     "questionType": "mcq",
     "tags": [
       "entertainment",
-      "sports"
+      "media"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about entertainment and fun places",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-013",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "entertainment",
     "question": "What do we call a place where wild animals are kept for people to see?",
     "options": [
       {
@@ -2410,15 +3056,15 @@ export const gkQuestions: Question[] = [
     "questionType": "mcq",
     "tags": [
       "entertainment",
-      "sports"
+      "media"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about entertainment and fun places",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-014",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "entertainment",
     "question": "What do we call a large event with rides and games for fun?",
     "options": [
       {
@@ -2444,15 +3090,559 @@ export const gkQuestions: Question[] = [
     "questionType": "mcq",
     "tags": [
       "entertainment",
-      "sports"
+      "media"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-017",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "What do we call a story told using pictures in a book?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A comic book"
+      },
+      {
+        "id": "b",
+        "text": "A dictionary"
+      },
+      {
+        "id": "c",
+        "text": "A map"
+      },
+      {
+        "id": "d",
+        "text": "A recipe book"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "A comic book is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-018",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "Where do we go to borrow and read lots of books?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cinema"
+      },
+      {
+        "id": "b",
+        "text": "Library"
+      },
+      {
+        "id": "c",
+        "text": "Zoo"
+      },
+      {
+        "id": "d",
+        "text": "Stadium"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Library is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-019",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "What do we call a show performed live on a stage in front of people?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A play"
+      },
+      {
+        "id": "b",
+        "text": "A newspaper"
+      },
+      {
+        "id": "c",
+        "text": "A map"
+      },
+      {
+        "id": "d",
+        "text": "A recipe"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "A play is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-020",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "Which of these is a place with fun rides like a roller coaster?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A hospital"
+      },
+      {
+        "id": "b",
+        "text": "An amusement park"
+      },
+      {
+        "id": "c",
+        "text": "A bank"
+      },
+      {
+        "id": "d",
+        "text": "A library"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "An amusement park is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-021",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "What do we call a picture that moves and tells a story on TV or in a cinema?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A film/movie"
+      },
+      {
+        "id": "b",
+        "text": "A newspaper"
+      },
+      {
+        "id": "c",
+        "text": "A map"
+      },
+      {
+        "id": "d",
+        "text": "A letter"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "A film/movie is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-022",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "Which of these is a puppet show tradition?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reading a map"
+      },
+      {
+        "id": "b",
+        "text": "Using puppets to tell a story"
+      },
+      {
+        "id": "c",
+        "text": "Playing cricket"
+      },
+      {
+        "id": "d",
+        "text": "Cooking food"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Using puppets to tell a story is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-023",
+    "subjectId": "gk",
+    "topicId": "entertainment",
+    "question": "What do we call a place where dolphins and fish are trained to perform shows?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An aquarium/marine park"
+      },
+      {
+        "id": "b",
+        "text": "A library"
+      },
+      {
+        "id": "c",
+        "text": "A school"
+      },
+      {
+        "id": "d",
+        "text": "A bank"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "An aquarium/marine park is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "entertainment",
+      "media"
+    ],
+    "learningObjective": "General knowledge about entertainment and fun places",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-001",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which equipment do you use to play cricket?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Net only"
+      },
+      {
+        "id": "b",
+        "text": "Bat and ball"
+      },
+      {
+        "id": "c",
+        "text": "Goal post"
+      },
+      {
+        "id": "d",
+        "text": "Racket"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Bat and ball is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-002",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which equipment do you use to play football?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A racket"
+      },
+      {
+        "id": "b",
+        "text": "A football"
+      },
+      {
+        "id": "c",
+        "text": "A net only"
+      },
+      {
+        "id": "d",
+        "text": "A bat"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "A football is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-003",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which sport uses a racket and a shuttlecock?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Football"
+      },
+      {
+        "id": "b",
+        "text": "Swimming"
+      },
+      {
+        "id": "c",
+        "text": "Badminton"
+      },
+      {
+        "id": "d",
+        "text": "Cricket"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Badminton is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-004",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which sport do you play in a swimming pool?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Badminton"
+      },
+      {
+        "id": "b",
+        "text": "Football"
+      },
+      {
+        "id": "c",
+        "text": "Swimming"
+      },
+      {
+        "id": "d",
+        "text": "Cricket"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Swimming is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-005",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "How many players are usually on a football team on the field?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Eleven"
+      },
+      {
+        "id": "b",
+        "text": "Fifteen"
+      },
+      {
+        "id": "c",
+        "text": "Nine"
+      },
+      {
+        "id": "d",
+        "text": "Five"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Eleven is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-006",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which game do you play by rolling a ball to knock down pins?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Badminton"
+      },
+      {
+        "id": "b",
+        "text": "Bowling"
+      },
+      {
+        "id": "c",
+        "text": "Cricket"
+      },
+      {
+        "id": "d",
+        "text": "Chess"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Bowling is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-007",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which board game is played with black and white pieces and a king?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Football"
+      },
+      {
+        "id": "b",
+        "text": "Chess"
+      },
+      {
+        "id": "c",
+        "text": "Bowling"
+      },
+      {
+        "id": "d",
+        "text": "Cricket"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Chess is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-008",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which of these is an indoor game?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Carrom"
+      },
+      {
+        "id": "b",
+        "text": "Swimming"
+      },
+      {
+        "id": "c",
+        "text": "Football"
+      },
+      {
+        "id": "d",
+        "text": "Cricket"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Carrom is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-entertainment-009",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which of these is an outdoor game?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Video games"
+      },
+      {
+        "id": "b",
+        "text": "Carrom"
+      },
+      {
+        "id": "c",
+        "text": "Cricket"
+      },
+      {
+        "id": "d",
+        "text": "Chess"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Cricket is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-015",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "sports",
     "question": "Which sport is played on ice with skates?",
     "options": [
       {
@@ -2477,16 +3667,16 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "entertainment",
-      "sports"
+      "sports",
+      "games"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about games and sports",
     "estimatedTimeSeconds": 30
   },
   {
     "id": "gk-entertainment-016",
     "subjectId": "gk",
-    "topicId": "entertainment-and-sports",
+    "topicId": "sports",
     "question": "Which of these is a popular children's outdoor game involving hiding?",
     "options": [
       {
@@ -2511,10 +3701,656 @@ export const gkQuestions: Question[] = [
     "difficulty": "hard",
     "questionType": "mcq",
     "tags": [
-      "entertainment",
-      "sports"
+      "sports",
+      "games"
     ],
-    "learningObjective": "General knowledge about games, sports and entertainment",
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sports-017",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which sport do you play on a table with a small ball and paddles?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Table tennis"
+      },
+      {
+        "id": "b",
+        "text": "Football"
+      },
+      {
+        "id": "c",
+        "text": "Cricket"
+      },
+      {
+        "id": "d",
+        "text": "Swimming"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Table tennis is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sports-018",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which sport is played using a hoop and a basketball?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Basketball"
+      },
+      {
+        "id": "b",
+        "text": "Cricket"
+      },
+      {
+        "id": "c",
+        "text": "Badminton"
+      },
+      {
+        "id": "d",
+        "text": "Chess"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Basketball is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sports-019",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Every four years, athletes from around the world compete in which big sports event?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Olympics"
+      },
+      {
+        "id": "b",
+        "text": "A birthday party"
+      },
+      {
+        "id": "c",
+        "text": "A school fair"
+      },
+      {
+        "id": "d",
+        "text": "A cooking contest"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "The Olympics is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-sports-020",
+    "subjectId": "gk",
+    "topicId": "sports",
+    "question": "Which sport uses a small white ball, a club, and holes in the ground?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Golf"
+      },
+      {
+        "id": "b",
+        "text": "Cricket"
+      },
+      {
+        "id": "c",
+        "text": "Football"
+      },
+      {
+        "id": "d",
+        "text": "Swimming"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Golf is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "sports",
+      "games"
+    ],
+    "learningObjective": "General knowledge about games and sports",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-001",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "On which day every year do we celebrate New Year's Day?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1 January"
+      },
+      {
+        "id": "b",
+        "text": "1 March"
+      },
+      {
+        "id": "c",
+        "text": "1 June"
+      },
+      {
+        "id": "d",
+        "text": "1 December"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "1 January is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-002",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated every year on 5 September in honour of teachers?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Children's Day"
+      },
+      {
+        "id": "b",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "c",
+        "text": "Republic Day"
+      },
+      {
+        "id": "d",
+        "text": "Independence Day"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Teacher's Day is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-003",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated every year on 14 November for children in India?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "b",
+        "text": "Children's Day"
+      },
+      {
+        "id": "c",
+        "text": "Republic Day"
+      },
+      {
+        "id": "d",
+        "text": "Independence Day"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Children's Day is correct.",
+    "difficulty": "easy",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-004",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 5 June every year to care for our planet?",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Environment Day"
+      },
+      {
+        "id": "b",
+        "text": "World Food Day"
+      },
+      {
+        "id": "c",
+        "text": "New Year's Day"
+      },
+      {
+        "id": "d",
+        "text": "Teacher's Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "World Environment Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-005",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 22 April every year to protect the Earth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Earth Day"
+      },
+      {
+        "id": "b",
+        "text": "World Water Day"
+      },
+      {
+        "id": "c",
+        "text": "Children's Day"
+      },
+      {
+        "id": "d",
+        "text": "Republic Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Earth Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-006",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 21 June every year, dedicated to a healthy exercise practice from India?",
+    "options": [
+      {
+        "id": "a",
+        "text": "International Yoga Day"
+      },
+      {
+        "id": "b",
+        "text": "World Food Day"
+      },
+      {
+        "id": "c",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "d",
+        "text": "Earth Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "International Yoga Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-007",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 2 October, the birthday of Mahatma Gandhi?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gandhi Jayanti"
+      },
+      {
+        "id": "b",
+        "text": "Republic Day"
+      },
+      {
+        "id": "c",
+        "text": "Independence Day"
+      },
+      {
+        "id": "d",
+        "text": "Children's Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Gandhi Jayanti is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-008",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 22 March every year to remind us to save water?",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Water Day"
+      },
+      {
+        "id": "b",
+        "text": "World Food Day"
+      },
+      {
+        "id": "c",
+        "text": "Earth Day"
+      },
+      {
+        "id": "d",
+        "text": "New Year's Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "World Water Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-009",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 8 September every year to encourage reading and learning?",
+    "options": [
+      {
+        "id": "a",
+        "text": "International Literacy Day"
+      },
+      {
+        "id": "b",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "c",
+        "text": "World Water Day"
+      },
+      {
+        "id": "d",
+        "text": "Earth Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "International Literacy Day is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-010",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 28 February every year to celebrate India's scientists?",
+    "options": [
+      {
+        "id": "a",
+        "text": "National Science Day"
+      },
+      {
+        "id": "b",
+        "text": "World Food Day"
+      },
+      {
+        "id": "c",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "d",
+        "text": "Earth Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "National Science Day is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-011",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 3 March every year to protect wild animals?",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Wildlife Day"
+      },
+      {
+        "id": "b",
+        "text": "Children's Day"
+      },
+      {
+        "id": "c",
+        "text": "New Year's Day"
+      },
+      {
+        "id": "d",
+        "text": "World Water Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "World Wildlife Day is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-012",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 24 January every year to support girls in India?",
+    "options": [
+      {
+        "id": "a",
+        "text": "National Girl Child Day"
+      },
+      {
+        "id": "b",
+        "text": "Republic Day"
+      },
+      {
+        "id": "c",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "d",
+        "text": "Earth Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "National Girl Child Day is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-013",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 16 October every year to remind us about food for everyone?",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Food Day"
+      },
+      {
+        "id": "b",
+        "text": "World Water Day"
+      },
+      {
+        "id": "c",
+        "text": "Earth Day"
+      },
+      {
+        "id": "d",
+        "text": "New Year's Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "World Food Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-014",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 21 September every year to encourage countries to stop fighting?",
+    "options": [
+      {
+        "id": "a",
+        "text": "International Day of Peace"
+      },
+      {
+        "id": "b",
+        "text": "Teacher's Day"
+      },
+      {
+        "id": "c",
+        "text": "Children's Day"
+      },
+      {
+        "id": "d",
+        "text": "World Food Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "International Day of Peace is correct.",
+    "difficulty": "hard",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
+    "estimatedTimeSeconds": 30
+  },
+  {
+    "id": "gk-ca-015",
+    "subjectId": "gk",
+    "topicId": "current-affairs",
+    "question": "Which day is celebrated on 7 April every year to remind us to stay healthy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "World Health Day"
+      },
+      {
+        "id": "b",
+        "text": "World Water Day"
+      },
+      {
+        "id": "c",
+        "text": "Earth Day"
+      },
+      {
+        "id": "d",
+        "text": "New Year's Day"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "World Health Day is correct.",
+    "difficulty": "medium",
+    "questionType": "mcq",
+    "tags": [
+      "current-affairs",
+      "important-days"
+    ],
+    "learningObjective": "Awareness of special days celebrated every year",
     "estimatedTimeSeconds": 30
   }
 ];

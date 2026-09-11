@@ -7,6 +7,15 @@ export const examConfig = {
   subjects: ["maths", "english", "evs", "gk", "aptitude"],
 } as const;
 
+// The three subjects on the official Grade 1 & 2 syllabus. Mock exams are
+// built only from these, weighted evenly; English/EVS are bonus subjects
+// outside the official syllabus and are excluded from the mock exam.
+export const mockExamConfig = {
+  subjectIds: ["maths", "gk", "aptitude"],
+  totalQuestions: 50,
+  timeLimitMinutes: 45,
+} as const;
+
 function daysBetween(fromISO: string, toISO: string): number {
   const from = new Date(fromISO + "T00:00:00");
   const to = new Date(toISO + "T00:00:00");

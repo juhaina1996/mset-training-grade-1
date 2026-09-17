@@ -5,6 +5,7 @@ import {
   getQuestionsBySubject,
   getQuestionsByTopic,
 } from "@/lib/repositories/questionRepository";
+import { getTopicsBySubject } from "@/data/topics";
 import {
   getAttemptedQuestionIds,
   getIncorrectQuestionIds,
@@ -135,6 +136,31 @@ export function getPracticeQuestions(options: QuestionSelectionOptions): Questio
   const ordered = orderByPriority(candidatePool, mode, neverAttempted, previouslyIncorrect, notRecentlySeen);
 
   return ordered.slice(0, count);
+}
+
+/**
+ * The subject's entire question bank in a fixed, syllabus-ordered sequence:
+ * topic by topic in the order they're taught, and easy → hard within each
+ * topic. Order is deterministic (no progress, no randomness) so a partly
+ * finished run through a subject always resumes at the same place.
+ */
+export function getAllSubjectQuestions(subjectId: string): Question[] {
+  const topicOrder = getTopicsBySubject(subjectId).map((t) => t.id);
+  const difficultyOrder: Difficulty[] = ["easy", "medium", "hard"];
+
+  const byTopic = topicOrder.flatMap((topicId) =>
+    difficultyOrder.flatMap((difficulty) =>
+      diversifyByTemplate(
+        getQuestionsByTopic(topicId).filter(
+          (q) => q.subjectId === subjectId && q.difficulty === difficulty
+        )
+      )
+    )
+  );
+
+  // Anything tagged to a topic that isn't on the subject's topic list still
+  // belongs in an "attempt everything" run, so it's appended at the end.
+  return dedupe([...byTopic, ...getQuestionsBySubject(subjectId)]);
 }
 
 /**

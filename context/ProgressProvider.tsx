@@ -20,6 +20,7 @@ import {
   setActiveProfileId,
 } from "@/lib/repositories/profileRepository";
 import { getNewlyUnlockedAchievements } from "@/lib/achievementEngine";
+import { toLocalISODate } from "@/config/exam";
 
 type NewAttemptInput = {
   questionId: string;
@@ -171,7 +172,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
 
   const markDailyComplete = useCallback(
     (day: number) => {
-      const today = new Date().toISOString().slice(0, 10);
+      const today = toLocalISODate(new Date());
       setProgress((prev) => applyAchievementCheck(markDailySessionComplete(prev, `day-${day}`, today)));
     },
     [applyAchievementCheck]

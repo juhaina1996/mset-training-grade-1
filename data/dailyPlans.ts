@@ -1,4 +1,4 @@
-import { examConfig, totalPreparationDays } from "@/config/exam";
+import { examConfig, toLocalISODate, totalPreparationDays } from "@/config/exam";
 import { subjects } from "@/data/subjects";
 import { getTopicsBySubject } from "@/data/topics";
 import type { DailyPlan, DailyPlanType, Difficulty, Topic } from "@/types";
@@ -9,14 +9,20 @@ const FOCUS_TOPICS_PER_SUBJECT = 2;
 function addDays(iso: string, days: number): string {
   const d = new Date(iso + "T00:00:00");
   d.setDate(d.getDate() + days);
-  return d.toISOString().slice(0, 10);
+  return toLocalISODate(d);
 }
 
 const totalDays = totalPreparationDays();
 
+// The ramp is expressed as a share of the preparation window rather than
+// fixed day numbers, so moving the exam date stretches or compresses the
+// easy/medium/hard phases instead of dumping every extra day into "hard".
+const EASY_PHASE_SHARE = 0.2;
+const MEDIUM_PHASE_SHARE = 0.58;
+
 function difficultyForDay(day: number): Difficulty {
-  if (day <= 7) return "easy";
-  if (day <= 21) return "medium";
+  if (day <= Math.round(totalDays * EASY_PHASE_SHARE)) return "easy";
+  if (day <= Math.round(totalDays * MEDIUM_PHASE_SHARE)) return "medium";
   return "hard";
 }
 

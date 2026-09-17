@@ -2,7 +2,7 @@ export type Difficulty = "easy" | "medium" | "hard";
 
 export type QuestionType = "mcq" | "true-false" | "fill-blank" | "image-based";
 
-export type PracticeMode = "daily" | "retest" | "revision" | "mock" | "mistakes";
+export type PracticeMode = "daily" | "retest" | "revision" | "mock" | "mistakes" | "full";
 
 export type DailyPlanType = "learning" | "revision" | "mixed" | "mock";
 

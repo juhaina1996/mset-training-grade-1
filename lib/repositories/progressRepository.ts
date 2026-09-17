@@ -6,6 +6,7 @@ import type {
   TopicProgress,
 } from "@/types";
 import { readProgressFromStorage, writeProgressToStorage, clearProgressInStorage } from "@/lib/storage";
+import { toLocalISODate } from "@/config/exam";
 
 // Local-storage-backed implementation, scoped per student profile. Swap the
 // bodies of loadProgress/saveProgress for Supabase/Firebase/database calls
@@ -107,6 +108,12 @@ export function startTestSession(
   progress: StudentProgress,
   session: TestSession
 ): StudentProgress {
+  // Session ids are unique by construction (timestamps, or a deterministic
+  // id per day/subject run), so an id that already exists means the same
+  // session was started twice — React re-running the setup effect on a
+  // remount, say. Keep the first row rather than storing a duplicate.
+  if (progress.testSessions.some((s) => s.id === session.id)) return progress;
+
   const isRetest = session.mode === "retest";
   let topicProgress = progress.topicProgress;
   if (isRetest && session.topicId && topicProgress[session.topicId]) {
@@ -171,7 +178,10 @@ export function markDailySessionComplete(
     if (!progress.lastPracticeDate) return false;
     const prev = new Date(progress.lastPracticeDate + "T00:00:00");
     prev.setDate(prev.getDate() + 1);
-    return prev.toISOString().slice(0, 10) === today;
+    // Both sides must use the local calendar date: `prev` is a local
+    // midnight, so reading it back as UTC would shift it a day earlier and
+    // no consecutive-day streak would ever be recognised.
+    return toLocalISODate(prev) === today;
   })();
 
   const streak = wasYesterday ? progress.streak + 1 : progress.lastPracticeDate === today ? progress.streak : 1;

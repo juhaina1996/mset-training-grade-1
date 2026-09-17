@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useProgress } from "@/context/ProgressProvider";
 import {
+  getAllSubjectQuestions,
   getMistakeQuestions,
   getMockExamQuestions,
   getPracticeQuestions,
@@ -12,15 +13,48 @@ import {
 } from "@/lib/questionSelector";
 import { getQuestionById } from "@/lib/repositories/questionRepository";
 import { generateDailyPracticePlan } from "@/lib/dailyPlanGenerator";
+import { getLatestFullRun, nextFullRunSessionId } from "@/lib/subjectRun";
+import { getSubjectById } from "@/data/subjects";
 import { mockExamConfig } from "@/config/exam";
 import { QuestionCard } from "@/components/QuestionCard";
 import { ProgressBar } from "@/components/ProgressBar";
-import type { PracticeMode, Question } from "@/types";
+import type { PracticeMode, Question, StudentProgress } from "@/types";
 
 function formatTime(totalSeconds: number): string {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
+type ResumeState = {
+  index: number;
+  correctCount: number;
+  selectedOptionId?: string;
+  revealed: boolean;
+};
+
+/**
+ * Where to drop the student back into a session they left part-way through:
+ * the first question of the set they haven't answered yet, with the running
+ * score restored from the attempts already recorded against that session.
+ */
+function resumeStateFor(
+  progress: StudentProgress,
+  sessionId: string,
+  questions: Question[]
+): ResumeState {
+  const attempts = progress.questionAttempts.filter((a) => a.sessionId === sessionId);
+  const answeredIds = new Set(attempts.map((a) => a.questionId));
+  const firstUnanswered = questions.findIndex((q) => !answeredIds.has(q.id));
+  const index = firstUnanswered === -1 ? Math.max(questions.length - 1, 0) : firstUnanswered;
+  const currentAttempt = attempts.find((a) => a.questionId === questions[index]?.id);
+
+  return {
+    index,
+    correctCount: attempts.filter((a) => a.isCorrect).length,
+    selectedOptionId: currentAttempt?.selectedOptionId,
+    revealed: Boolean(currentAttempt),
+  };
 }
 
 export default function PracticePage() {
@@ -54,6 +88,8 @@ function PracticeContent() {
 
   const isDailyFullSession = mode === "daily" && day !== undefined;
   const isMockExam = mode === "mock";
+  const isFullSubjectRun = mode === "full" && Boolean(subjectIdParam);
+  const runSubject = isFullSubjectRun ? getSubjectById(subjectIdParam!) : undefined;
   const currentQuestion = questions[index];
   const isLastQuestion = index === questions.length - 1;
 
@@ -62,10 +98,7 @@ function PracticeContent() {
 
     let selected: Question[] = [];
     let newSessionId: string;
-    let resumedIndex = 0;
-    let resumedCorrect = 0;
-    let resumedSelectedOptionId: string | undefined;
-    let resumedRevealed = false;
+    let resumed: ResumeState = { index: 0, correctCount: 0, revealed: false };
 
     if (isDailyFullSession) {
       // Deterministic per-day session id so returning to an unfinished day's
@@ -78,18 +111,7 @@ function PracticeContent() {
         selected = existingSession.questionIds
           .map((id) => getQuestionById(id))
           .filter((q): q is Question => Boolean(q));
-
-        const attemptsForSession = progress.questionAttempts.filter((a) => a.sessionId === newSessionId);
-        const answeredIds = new Set(attemptsForSession.map((a) => a.questionId));
-        const firstUnanswered = selected.findIndex((q) => !answeredIds.has(q.id));
-        resumedIndex = firstUnanswered === -1 ? Math.max(selected.length - 1, 0) : firstUnanswered;
-        resumedCorrect = attemptsForSession.filter((a) => a.isCorrect).length;
-
-        const currentAttempt = attemptsForSession.find((a) => a.questionId === selected[resumedIndex]?.id);
-        if (currentAttempt) {
-          resumedSelectedOptionId = currentAttempt.selectedOptionId;
-          resumedRevealed = true;
-        }
+        resumed = resumeStateFor(progress, newSessionId, selected);
       } else {
         const plan = generateDailyPracticePlan(day!, progress);
         selected = plan ? getQuestionsForDailyPlan(plan, progress) : [];
@@ -104,6 +126,30 @@ function PracticeContent() {
         startSession({
           id: newSessionId,
           mode,
+          questionIds: selected.map((q) => q.id),
+        });
+      }
+    } else if (isFullSubjectRun) {
+      // One pass through the subject's entire bank. The run lives under a
+      // deterministic id so it can be put down and picked up over several
+      // days; finishing it starts a fresh run rather than reopening the
+      // finished one.
+      const latestRun = getLatestFullRun(progress, subjectIdParam!);
+
+      if (latestRun && !latestRun.completedAt) {
+        newSessionId = latestRun.id;
+        selected = latestRun.questionIds
+          .map((id) => getQuestionById(id))
+          .filter((q): q is Question => Boolean(q));
+        resumed = resumeStateFor(progress, newSessionId, selected);
+      } else {
+        selected = getAllSubjectQuestions(subjectIdParam!);
+        newSessionId = nextFullRunSessionId(progress, subjectIdParam!);
+
+        startSession({
+          id: newSessionId,
+          mode,
+          subjectId: subjectIdParam,
           questionIds: selected.map((q) => q.id),
         });
       }
@@ -154,10 +200,10 @@ function PracticeContent() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuestions(selected);
     setSessionId(newSessionId);
-    setIndex(resumedIndex);
-    setCorrectCount(resumedCorrect);
-    setSelectedOptionId(resumedSelectedOptionId);
-    setRevealed(resumedRevealed);
+    setIndex(resumed.index);
+    setCorrectCount(resumed.correctCount);
+    setSelectedOptionId(resumed.selectedOptionId);
+    setRevealed(resumed.revealed);
     if (mode === "mock") setRemainingSeconds(mockExamConfig.timeLimitMinutes * 60);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReady]);
@@ -213,6 +259,7 @@ function PracticeContent() {
 
   if (questions.length === 0) {
     const isMistakesMode = mode === "mistakes";
+    const emptyHref = isMistakesMode ? "/" : isFullSubjectRun ? "/all-questions" : "/subjects";
     return (
       <div className="rounded-2xl bg-white p-8 text-center shadow-sm dark:bg-slate-800">
         <p className="font-semibold">
@@ -220,11 +267,8 @@ function PracticeContent() {
             ? "No mistakes to review right now — great job!"
             : "No questions available for this selection yet."}
         </p>
-        <Link
-          href={isMistakesMode ? "/" : "/subjects"}
-          className="mt-3 inline-block text-indigo-600 hover:underline dark:text-indigo-400"
-        >
-          {isMistakesMode ? "Back to home" : "Back to subjects"}
+        <Link href={emptyHref} className="mt-3 inline-block text-indigo-600 hover:underline dark:text-indigo-400">
+          {isMistakesMode ? "Back to home" : isFullSubjectRun ? "Back to all questions" : "Back to subjects"}
         </Link>
       </div>
     );
@@ -288,6 +332,10 @@ function PracticeContent() {
           >
             ⏱ {formatTime(remainingSeconds)}
           </span>
+        ) : isFullSubjectRun && runSubject ? (
+          <span>
+            {runSubject.icon} {runSubject.shortName}
+          </span>
         ) : (
           <span className="capitalize">{mode} practice</span>
         )}
@@ -305,6 +353,17 @@ function PracticeContent() {
         <p className="text-center text-base font-semibold text-slate-500 dark:text-slate-400">
           {isLastQuestion ? "Finishing up…" : "Next question…"}
         </p>
+      )}
+
+      {isFullSubjectRun && (
+        // A full run is hundreds of questions long, so make it obvious that
+        // stopping is fine — every answer is already saved.
+        <Link
+          href="/all-questions"
+          className="mx-auto text-base font-semibold text-slate-500 underline-offset-4 hover:underline dark:text-slate-400"
+        >
+          Save &amp; exit — your place is kept
+        </Link>
       )}
     </div>
   );

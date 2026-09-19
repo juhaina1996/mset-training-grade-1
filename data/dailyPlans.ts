@@ -1,7 +1,7 @@
 import { examConfig, toLocalISODate, totalPreparationDays } from "@/config/exam";
 import { subjects } from "@/data/subjects";
 import { getTopicsBySubject } from "@/data/topics";
-import type { DailyPlan, DailyPlanType, Difficulty, Topic } from "@/types";
+import type { DailyPlan, DailyPlanType, Topic } from "@/types";
 
 const DAILY_TOTAL_QUESTIONS = 50;
 const FOCUS_TOPICS_PER_SUBJECT = 2;
@@ -13,18 +13,6 @@ function addDays(iso: string, days: number): string {
 }
 
 const totalDays = totalPreparationDays();
-
-// The ramp is expressed as a share of the preparation window rather than
-// fixed day numbers, so moving the exam date stretches or compresses the
-// easy/medium/hard phases instead of dumping every extra day into "hard".
-const EASY_PHASE_SHARE = 0.2;
-const MEDIUM_PHASE_SHARE = 0.58;
-
-function difficultyForDay(day: number): Difficulty {
-  if (day <= Math.round(totalDays * EASY_PHASE_SHARE)) return "easy";
-  if (day <= Math.round(totalDays * MEDIUM_PHASE_SHARE)) return "medium";
-  return "hard";
-}
 
 function planTypeForDay(day: number): DailyPlanType {
   if (day === totalDays) return "mock";
@@ -43,7 +31,7 @@ function titleForDay(day: number, type: DailyPlanType): string {
 function descriptionForDay(type: DailyPlanType): string {
   if (type === "mock") return "A mixed test across all subjects to check your progress.";
   if (type === "revision") return "Revisit earlier topics to strengthen your memory.";
-  return "Build your foundation with today's focused topics.";
+  return "A mix of easy, medium and hard questions on today's topics.";
 }
 
 function pickFocusTopics(subjectTopics: Topic[], day: number, subjectIndex: number): Topic[] {
@@ -56,7 +44,11 @@ function pickFocusTopics(subjectTopics: Topic[], day: number, subjectIndex: numb
 function buildDailyPlan(day: number): DailyPlan {
   const date = addDays(examConfig.preparationStartDate, day - 1);
   const type = planTypeForDay(day);
-  const difficulty: DailyPlan["difficulty"] = type === "mock" ? "mixed" : difficultyForDay(day);
+  // Every day serves an even spread of easy, medium and hard rather than
+  // working through one difficulty band at a time: the exam mixes them, so
+  // practice should too, and an easy question between two hard ones keeps
+  // the session from feeling like a wall.
+  const difficulty: DailyPlan["difficulty"] = "mixed";
 
   const baseCount = Math.floor(DAILY_TOTAL_QUESTIONS / subjects.length);
   const remainder = DAILY_TOTAL_QUESTIONS - baseCount * subjects.length;

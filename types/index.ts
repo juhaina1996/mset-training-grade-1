@@ -121,12 +121,21 @@ export type DailyPlan = {
   type: DailyPlanType;
 };
 
+/** A specific difficulty, or an even spread of all three. */
+export type DifficultyPreference = Difficulty | "mixed";
+
 export type QuestionSelectionOptions = {
   mode: PracticeMode;
   subjectId?: string;
   topicId?: string;
   count: number;
-  difficulty?: Difficulty;
+  difficulty?: DifficultyPreference;
+  /**
+   * Which difficulty leads a "mixed" selection. Slots shorter than a full
+   * easy/medium/hard cycle would otherwise always drop the same difficulty
+   * from the tail, so callers stagger this across slots to even it out.
+   */
+  difficultyRotation?: number;
   excludeQuestionIds?: string[];
   studentProgress?: StudentProgress;
 };

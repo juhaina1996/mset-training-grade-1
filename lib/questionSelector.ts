@@ -1,4 +1,12 @@
-import type { DailyPlan, Difficulty, PracticeMode, Question, QuestionSelectionOptions, StudentProgress } from "@/types";
+import type {
+  DailyPlan,
+  Difficulty,
+  DifficultyPreference,
+  PracticeMode,
+  Question,
+  QuestionSelectionOptions,
+  StudentProgress,
+} from "@/types";
 import {
   getAllQuestions,
   getQuestionById,
@@ -61,7 +69,37 @@ function diversifyByTemplate(pool: Question[]): Question[] {
   return interleaveBy(pool, templateSignature);
 }
 
-function byDifficultyPreference(pool: Question[], preferred?: Difficulty): Question[] {
+const DIFFICULTY_ORDER: Difficulty[] = ["easy", "medium", "hard"];
+
+/**
+ * Deals easy/medium/hard out in rotation, so any slice off the top of the
+ * result holds a roughly even spread of all three rather than working
+ * through one difficulty before reaching the next.
+ */
+function interleaveByDifficulty(pool: Question[], rotation: number = 0): Question[] {
+  const start = ((rotation % DIFFICULTY_ORDER.length) + DIFFICULTY_ORDER.length) % DIFFICULTY_ORDER.length;
+  const buckets = DIFFICULTY_ORDER.map((_, i) =>
+    diversifyByTemplate(
+      pool.filter((q) => q.difficulty === DIFFICULTY_ORDER[(start + i) % DIFFICULTY_ORDER.length])
+    )
+  );
+  const longest = Math.max(0, ...buckets.map((bucket) => bucket.length));
+
+  const result: Question[] = [];
+  for (let i = 0; i < longest; i++) {
+    for (const bucket of buckets) {
+      if (i < bucket.length) result.push(bucket[i]);
+    }
+  }
+  return result;
+}
+
+function byDifficultyPreference(
+  pool: Question[],
+  preferred?: DifficultyPreference,
+  rotation?: number
+): Question[] {
+  if (preferred === "mixed") return interleaveByDifficulty(pool, rotation);
   if (!preferred) return diversifyByTemplate(pool);
   const fallbackOrder: Record<Difficulty, Difficulty[]> = {
     easy: ["medium", "hard"],
@@ -97,7 +135,16 @@ function orderByPriority(
  * questions once the topic's bank is exhausted.
  */
 export function getPracticeQuestions(options: QuestionSelectionOptions): Question[] {
-  const { mode, subjectId, topicId, count, difficulty, excludeQuestionIds = [], studentProgress } = options;
+  const {
+    mode,
+    subjectId,
+    topicId,
+    count,
+    difficulty,
+    difficultyRotation,
+    excludeQuestionIds = [],
+    studentProgress,
+  } = options;
 
   let pool: Question[];
   if (topicId) {
@@ -115,11 +162,13 @@ export function getPracticeQuestions(options: QuestionSelectionOptions): Questio
     getLastSessionQuestionIds(studentProgress, topicId).forEach((id) => excludeSet.add(id));
   }
 
-  const effectiveDifficulty: Difficulty | undefined =
+  // An explicit preference wins over the topic's adaptive level — asking for
+  // a mix has to mean a mix, even on a topic that has settled at "easy".
+  const effectiveDifficulty: DifficultyPreference | undefined =
     difficulty ?? (topicId ? studentProgress?.topicProgress[topicId]?.currentDifficulty : undefined);
 
   let candidatePool = pool.filter((q) => !excludeSet.has(q.id));
-  candidatePool = byDifficultyPreference(candidatePool, effectiveDifficulty);
+  candidatePool = byDifficultyPreference(candidatePool, effectiveDifficulty, difficultyRotation);
 
   if (!studentProgress) {
     return dedupe(candidatePool).slice(0, count);
@@ -146,10 +195,9 @@ export function getPracticeQuestions(options: QuestionSelectionOptions): Questio
  */
 export function getAllSubjectQuestions(subjectId: string): Question[] {
   const topicOrder = getTopicsBySubject(subjectId).map((t) => t.id);
-  const difficultyOrder: Difficulty[] = ["easy", "medium", "hard"];
 
   const byTopic = topicOrder.flatMap((topicId) =>
-    difficultyOrder.flatMap((difficulty) =>
+    DIFFICULTY_ORDER.flatMap((difficulty) =>
       diversifyByTemplate(
         getQuestionsByTopic(topicId).filter(
           (q) => q.subjectId === subjectId && q.difficulty === difficulty
@@ -207,6 +255,10 @@ export function getMockExamQuestions(
  * whole subject's bank when no focus topics are set).
  */
 export function getQuestionsForDailyPlan(plan: DailyPlan, studentProgress: StudentProgress): Question[] {
+  // Counts every slot across the whole day so each one leads with a
+  // different difficulty, leaving the day evenly balanced overall.
+  let slotIndex = 0;
+
   return plan.subjects.flatMap((slot) => {
     const focusTopics = slot.focusTopics ?? [];
     if (focusTopics.length === 0) {
@@ -214,6 +266,8 @@ export function getQuestionsForDailyPlan(plan: DailyPlan, studentProgress: Stude
         mode: "daily",
         subjectId: slot.subjectId,
         count: slot.questionCount,
+        difficulty: plan.difficulty,
+        difficultyRotation: slotIndex++,
         studentProgress,
       });
     }
@@ -227,6 +281,8 @@ export function getQuestionsForDailyPlan(plan: DailyPlan, studentProgress: Stude
         subjectId: slot.subjectId,
         topicId,
         count: base + (i < remainder ? 1 : 0),
+        difficulty: plan.difficulty,
+        difficultyRotation: slotIndex++,
         studentProgress,
       })
     );
